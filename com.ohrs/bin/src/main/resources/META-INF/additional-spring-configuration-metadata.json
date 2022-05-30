@@ -1,0 +1,22 @@
+{"properties": [
+  {
+    "name": "ohrs.app.jwtCookieName",
+    "type": "java.lang.String",
+    "description": "A description for 'ohrs.app.jwtCookieName'"
+  },
+  {
+    "name": "OHRSProject.app.jwtCookieName",
+    "type": "java.lang.String",
+    "description": "A description for 'OHRSProject.app.jwtCookieName'"
+  },
+  {
+    "name": "OHRSProject.app.jwtSecret",
+    "type": "java.lang.String",
+    "description": "A description for 'OHRSProject.app.jwtSecret'"
+  },
+  {
+    "name": "OHRSProject.app.jwtExpirationMs",
+    "type": "java.lang.String",
+    "description": "A description for 'OHRSProject.app.jwtExpirationMs'"
+  }
+]}
