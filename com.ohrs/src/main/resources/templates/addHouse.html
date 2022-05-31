@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta charset="ISO-8859-1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<title>Add House | OHRS</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+<style>
+body {
+	background: #e6e6fa;
+}
+
+.bg-primary {
+	background: #000000;
+}
+
+.main {
+	width: 100%;
+	height: 93vh;
+	background: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .8));
+	background-size: cover;
+	color: white;
+}
+</style>
+</head>
+
+<body>
+
+
+	<!-- create navigation bar ( header) -->
+	<nav class="navbar navbar-inverse navbar-fixed-top bg-primary">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="home" th:href="@{/api/test/all}">House
+					Renting System</a>
+			</div>
+		</div>
+	</nav>
+
+	<br>
+	<br>
+
+
+
+	<div class="card">
+		<div class="card-header">
+			<p class="h4 mb-2 text-center">Add House</p>
+		</div>
+		<div class="card-body">
+			<form class="text-center border border-light p-5" action="/addH" method="Post">
+				<br>
+				<!-- Name -->
+				<input type="text" name="houseName" id="houseName"
+					class="form-control mb-4" placeholder="House Name">
+				<br>
+				<!-- Rent -->
+				<input type="text" name="houseRent" id="houseRent"
+					class="form-control mb-4" placeholder="House Rent">
+				<br>
+				<!-- Address -->
+				<textarea class="form-control mb-4" id="HouseAddress"
+					name="houseAddress" placeholder="House Address">House Address
+                                 </textarea>
+                <br>
+				<div class="custom-file mb-4">
+					<input type="file" name="houseImage" class="custom-file-input"
+						id="houseImage"> <label class="custom-file-label"
+						for="customFile">House Image</label>
+				</div>
+				<br>
+				<!-- Sign in button -->
+				<button class="btn btn-info btn-block" type="submit">add</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
