@@ -37,17 +37,17 @@ public class HouseController {
 		return "/listHouses.html";
 	}
     @GetMapping("/")
-    public String showAddProduct()
+    public String showAddHouse()
     {
     	
     	return "/addHouse.html";
     }
     
     @PostMapping("/addH")
-    public String saveHouse(@RequestParam("file") MultipartFile file,
-    		@RequestParam("hname") String name,
-    		@RequestParam("rent") double rent,
-    		@RequestParam("address") String address)
+    public String saveHouse(@RequestParam("houseImage") MultipartFile file,
+    		@RequestParam("houseName") String name,
+    		@RequestParam("houseRent") double rent,
+    		@RequestParam("houseAddress") String address)
     {
     	houseService.saveHouseToDB(file, name, address, rent);
     	return "redirect:/listHouses.html";
