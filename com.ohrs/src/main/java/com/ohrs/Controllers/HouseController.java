@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ohrs.models.House;
+import com.ohrs.repositories.HouseRepository;
 import com.ohrs.security.services.HouseService;
 
 @RestController
@@ -21,6 +22,9 @@ public class HouseController {
 
 	@Autowired
 	private HouseService houseService;
+	
+	@Autowired
+	private HouseRepository houseRepo;
 	
 	@RequestMapping("/home")
 	public ModelAndView ShowHouse() {
@@ -30,27 +34,33 @@ public class HouseController {
 	}
 	
 	@GetMapping("/listHouses")
-	public String showExampleView(Model model)
+	public ModelAndView showExampleView()
 	{
+		ModelAndView mv=new ModelAndView();
 		List<House> houses = houseService.getAllHouse();
-		model.addAttribute("houses", houses);
-		return "/listHouses.html";
+		//model.addAttribute("houses", houses);
+		mv.addObject("houses",houses);
+		mv.setViewName("listHouses.html");
+		return mv;
 	}
     @GetMapping("/")
     public String showAddHouse()
     {
-    	
     	return "/addHouse.html";
     }
     
     @PostMapping("/addH")
-    public String saveHouse(@RequestParam("houseImage") MultipartFile file,
+    public ModelAndView saveHouse(@RequestParam("houseImage") MultipartFile file,
     		@RequestParam("houseName") String name,
     		@RequestParam("houseRent") double rent,
     		@RequestParam("houseAddress") String address)
     {
     	houseService.saveHouseToDB(file, name, address, rent);
-    	return "redirect:/listHouses.html";
+    	ModelAndView mv=new ModelAndView();
+		mv.setViewName("listHouses.html");
+		return mv;
+    	
+    	//return "redirect:/listHouses.html";
     }
     
     @GetMapping("/deleteHouse/{id}")
@@ -65,7 +75,8 @@ public class HouseController {
     public String changeHname(@RequestParam("id") Long id,
     		@RequestParam("newHname") String name)
     {
-    	houseService.chageHouseName(id, name);
+    
+    	houseService.changeHouseName(id, name);
     	return "redirect:/listHouses.html";
     }
     @PostMapping("/changeAddress")

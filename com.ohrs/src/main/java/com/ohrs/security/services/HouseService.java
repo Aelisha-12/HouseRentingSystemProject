@@ -32,7 +32,6 @@ public class HouseService {
 			e.printStackTrace();
 		}
 		h.setHouseAddress(houseAddress);
-
 		h.setHouseName(houseName);
 		h.setHouseRent(houseRent);
 
@@ -47,10 +46,10 @@ public class HouseService {
 		houseRepo.deleteById(id);
 	}
 
-	public void chageHouseName(Long id, String housename) {
+	public void changeHouseName(Long id, String houseName) {
 		House h = new House();
 		h = houseRepo.findById(id).get();
-		h.setHouseName(housename);
+		h.setHouseName(houseName);
 		houseRepo.save(h);
 	}
 

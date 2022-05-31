@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
+		lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
 <meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="css/bootstrap.css" rel="stylesheet">
 <title>List Of House | OHRS</title>
 </head>
 <body>
@@ -10,22 +13,23 @@
 		<div class="col-12">
 			
 			
-            <h3 class="text-center">list of products</h3>
+            <h3 class="text-center">List of Houses</h3>
 			<hr>
 			<table class="table">
 				<thead class="thead-dark">
 					<tr>
-						<th scope="col">Image</th>
-						<th scope="col">Name</th>
-						<th scope="col">Address</th>
-						<th scope="col">Rent</th>
-						<th scope="col">delete House</th>
+						<th scope="col">Image &nbsp; &nbsp; &nbsp;</th> 
+						<th scope="col">Name &nbsp; &nbsp; &nbsp;</th> 
+						<th scope="col">Address &nbsp; &nbsp; &nbsp;</th>
+						<th scope="col">Rent &nbsp; &nbsp; &nbsp;</th>
+						<th scope="col">delete House &nbsp; &nbsp; &nbsp;</th> 
 					</tr>
 				</thead>
 				<tbody>
 					<tr th:each="house : ${houses}">
-						<th scope="row"><img alt="" th:src="*{'data:image/jpeg;base64,'+{house.image}}" style="width: 100px;height: 100px;"></th>
-						<td>[[*{house.Name}]] 
+						<th scope="row"><img alt="" th:src="*{'data:image/jpeg;base64,'+{house.houseimage}}" style="width: 100px;height: 100px;"></th>
+						<td>[[*{house.houseName}]] 
+					
 						<!-- Button trigger modal --> <br>
 							<button type="button" class="btn btn-success btn-sm mt-2"
 								data-toggle="modal"
@@ -68,7 +72,7 @@
 							</div>
 
 						</td>
-						<td>[[*{house.address}]] <!-- Button trigger modal -->
+						<td>[[*{house.houseAddress}]] <!-- Button trigger modal -->
 							<br>
 							<button type="button" class="btn btn-success btn-sm mt-2"
 								data-toggle="modal"
@@ -109,7 +113,7 @@
 								</div>
 							</div>
 						</td>
-						<td>[[*{house.rent}]] <!-- Button trigger modal --> <br>
+						<td>[[*{house.houseRent}]] <!-- Button trigger modal --> <br>
 							<button type="button" class="btn btn-success btn-sm mt-2"
 								data-toggle="modal"
 								th:attr="data-target='#exampleModalCenterPrice'+${house.id}">change
@@ -158,5 +162,7 @@
 			<hr>
 		</div>
 
+<script src="js/jquery-3.1.1.min.js"></script>
+<script src="js/bootstrap.js"></script>
 </body>
 </html>
